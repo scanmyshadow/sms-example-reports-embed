@@ -1,0 +1,833 @@
+<!-- SCANMYSHADOW — SAMPLE REPORT PREVIEW EMBED -->
+<!-- Paste this entire block into a Carrd HTML Embed element -->
+<!-- The iframe srcdoc isolates JS from Carrd entirely -->
+
+<style>
+  .sms-embed-shell {
+    width: 100%;
+    max-width: 680px;
+    margin: 0 auto;
+    display: block;
+    border: none;
+    background: #080d1a;
+  }
+</style>
+
+<iframe
+  class="sms-embed-shell"
+  height="4400"
+  scrolling="no"
+  frameborder="0"
+  srcdoc="<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<link href='https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600;700&display=swap' rel='stylesheet'>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #080d1a;
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    padding: 32px 16px 48px;
+    min-height: 100%;
+  }
+
+  /* ── Section header ─────────────────────────────── */
+  .section-label {
+    text-align: center;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #d4af37;
+    margin-bottom: 10px;
+  }
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(22px, 5vw, 32px);
+    text-align: center;
+    color: #fff;
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+  .section-sub {
+    text-align: center;
+    color: rgba(255,255,255,0.45);
+    font-size: 13px;
+    max-width: 420px;
+    margin: 0 auto 28px;
+    line-height: 1.5;
+  }
+
+  /* ── Tab switcher (checkbox hack) ───────────────── */
+  .tab-inputs { display: none; }
+
+  .tab-bar {
+    display: flex;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+    padding: 4px;
+    max-width: 400px;
+    margin: 0 auto 24px;
+    gap: 4px;
+  }
+  .tab-label {
+    flex: 1;
+    text-align: center;
+    padding: 9px 8px;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.45);
+    cursor: pointer;
+    transition: all 0.2s;
+    user-select: none;
+  }
+  .tab-label:hover { color: rgba(255,255,255,0.75); }
+
+  /* Active state via checkbox */
+  #tab-phone:checked ~ .tab-bar .tab-label-phone,
+  #tab-email:checked ~ .tab-bar .tab-label-email {
+    background: #d4af37;
+    color: #080d1a;
+    font-weight: 600;
+  }
+
+  /* Panel visibility */
+  .panel { display: none; }
+  #tab-phone:checked ~ .panels .panel-phone { display: block; }
+  #tab-email:checked ~ .panels .panel-email { display: block; }
+
+  /* ── Report card wrapper ─────────────────────────── */
+  .report-card {
+    position: relative;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 20px;
+    overflow: hidden;
+  }
+
+  /* Diagonal SAMPLE watermark */
+  .report-card::before {
+    content: 'SAMPLE';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-35deg);
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(56px, 18vw, 96px);
+    font-weight: 700;
+    color: rgba(212,175,55,0.06);
+    letter-spacing: 12px;
+    pointer-events: none;
+    white-space: nowrap;
+    z-index: 0;
+    user-select: none;
+  }
+
+  .report-inner { position: relative; z-index: 1; }
+
+  /* ── Report header ───────────────────────────────── */
+  .report-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .report-brand {
+    font-family: 'DM Serif Display', serif;
+    font-size: 16px;
+    color: #d4af37;
+  }
+  .report-meta { font-size: 11px; color: rgba(255,255,255,0.35); text-align: right; }
+  .report-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,175,55,0.3), transparent);
+    margin-bottom: 18px;
+  }
+
+  /* ── Summary stats ───────────────────────────────── */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+  @media (max-width: 400px) {
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  .stat-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 8px;
+    padding: 10px 8px;
+    text-align: center;
+  }
+  .stat-val {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-val.red { color: #e05c5c; }
+  .stat-val.gold { color: #d4af37; }
+  .stat-val.green { color: #3ecf8e; }
+  .stat-val.white { color: #fff; }
+  .stat-label { font-size: 10px; color: rgba(255,255,255,0.4); }
+
+  /* ── Section sub-heads ───────────────────────────── */
+  .sub-head {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(212,175,55,0.7);
+    margin-bottom: 10px;
+    margin-top: 20px;
+  }
+
+  /* ── Platform cards ──────────────────────────────── */
+  .platform-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 10px;
+    padding: 12px;
+    margin-bottom: 8px;
+  }
+  .platform-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  .platform-name {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 13px;
+  }
+  .platform-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+  .icon-wa { background: rgba(37,211,102,0.15); }
+  .icon-eye { background: rgba(99,179,237,0.15); }
+  .icon-wt { background: rgba(212,175,55,0.15); }
+  .found-badge {
+    font-size: 10px;
+    font-weight: 600;
+    color: #3ecf8e;
+    background: rgba(62,207,142,0.1);
+    border: 1px solid rgba(62,207,142,0.2);
+    padding: 2px 8px;
+    border-radius: 20px;
+  }
+  .platform-fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+  }
+  .field-row { font-size: 11px; }
+  .field-key { color: rgba(255,255,255,0.35); margin-bottom: 1px; }
+  .field-val { color: rgba(255,255,255,0.85); font-weight: 500; }
+  .blurred { filter: blur(4px); user-select: none; color: rgba(255,255,255,0.6); }
+
+  /* ── Activity table ──────────────────────────────── */
+  .act-table { width: 100%; border-collapse: collapse; margin-top: 4px; }
+  .act-table th {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    text-align: left;
+    padding: 0 0 8px;
+  }
+  .act-table td {
+    padding: 8px 0;
+    font-size: 12px;
+    color: rgba(255,255,255,0.75);
+    border-top: 1px solid rgba(255,255,255,0.05);
+    vertical-align: middle;
+  }
+  .act-table td:first-child { color: rgba(255,255,255,0.35); font-size: 11px; width: 90px; }
+  .act-platform-dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #d4af37;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+
+  /* ── Email panel — sites grid ────────────────────── */
+  .sites-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
+  @media (min-width: 420px) {
+    .sites-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  .site-tile {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 8px;
+    padding: 10px 8px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.75);
+  }
+  .site-tile.teaser {
+    color: rgba(212,175,55,0.7);
+    border-color: rgba(212,175,55,0.15);
+    background: rgba(212,175,55,0.04);
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .site-icon { font-size: 18px; display: block; margin-bottom: 4px; }
+
+  /* ── Breach table ────────────────────────────────── */
+  .breach-table { width: 100%; border-collapse: collapse; }
+  .breach-table th {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    text-align: left;
+    padding: 0 4px 8px 0;
+  }
+  .breach-table td {
+    padding: 8px 4px 8px 0;
+    font-size: 11px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    vertical-align: top;
+  }
+  .breach-source { font-weight: 600; color: #fff; font-size: 12px; }
+  .breach-date { color: rgba(255,255,255,0.35); font-size: 10px; margin-top: 2px; }
+  .breach-count { color: #e05c5c; font-weight: 600; }
+  .breach-tags { display: flex; flex-wrap: wrap; gap: 3px; }
+  .breach-tag {
+    font-size: 9px;
+    background: rgba(224,92,92,0.1);
+    border: 1px solid rgba(224,92,92,0.2);
+    color: rgba(224,92,92,0.9);
+    padding: 1px 5px;
+    border-radius: 3px;
+  }
+  .lock-row {
+    text-align: center;
+    padding: 10px;
+    font-size: 11px;
+    color: rgba(255,255,255,0.35);
+    background: rgba(255,255,255,0.02);
+    border-top: 1px solid rgba(255,255,255,0.05);
+    border-radius: 0 0 6px 6px;
+  }
+
+  /* ── Geo entries ─────────────────────────────────── */
+  .geo-entry {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 8px;
+  }
+  .geo-entry.faded { opacity: 0.4; filter: blur(1.5px); }
+  .geo-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+  .geo-source {
+    font-size: 11px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.6);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .geo-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #3ecf8e;
+    flex-shrink: 0;
+  }
+  .geo-date { font-size: 10px; color: rgba(255,255,255,0.3); }
+  .geo-fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    font-size: 11px;
+  }
+  .geo-map-placeholder {
+    height: 60px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.2);
+    font-size: 11px;
+    margin-top: 8px;
+    grid-column: 1 / -1;
+  }
+
+  /* ── CTA footer ──────────────────────────────────── */
+  .cta-footer {
+    margin-top: 24px;
+    text-align: center;
+  }
+  .cta-note {
+    font-size: 11px;
+    color: rgba(255,255,255,0.3);
+    margin-bottom: 12px;
+  }
+  .cta-btn {
+    display: inline-block;
+    background: #d4af37;
+    color: #080d1a;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 13px 28px;
+    border-radius: 999px;
+    text-decoration: none;
+    letter-spacing: 0.3px;
+    transition: opacity 0.2s, transform 0.1s;
+  }
+  .cta-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+  .cta-sub {
+    font-size: 11px;
+    color: rgba(255,255,255,0.3);
+    margin-top: 8px;
+  }
+</style>
+</head>
+<body>
+
+<!-- Section header -->
+<div class='section-label'>Sample Report</div>
+<h2 class='section-title'>See Exactly What You'll Receive</h2>
+<p class='section-sub'>Real data format. Sensitive fields blurred. Your full report will include everything unlocked.</p>
+
+<!-- Hidden checkboxes MUST come before .tab-bar and .panels for CSS ~ sibling selector -->
+<input type='radio' class='tab-inputs' id='tab-phone' name='tabs' checked>
+<input type='radio' class='tab-inputs' id='tab-email' name='tabs'>
+
+<!-- Tab bar -->
+<div class='tab-bar'>
+  <label class='tab-label tab-label-phone' for='tab-phone'>📱 Phone Number Report</label>
+  <label class='tab-label tab-label-email' for='tab-email'>📧 Email Report</label>
+</div>
+
+<!-- Panels container -->
+<div class='panels'>
+
+  <!-- ════════ PHONE PANEL ════════ -->
+  <div class='panel panel-phone'>
+    <div class='report-card'>
+      <div class='report-inner'>
+
+        <div class='report-header'>
+          <div class='report-brand'>🔍 ScanMyShadow</div>
+          <div class='report-meta'>Phone Report<br>Sample · 2025</div>
+        </div>
+        <div class='report-divider'></div>
+
+        <!-- Stats -->
+        <div class='stats-grid'>
+          <div class='stat-card'>
+            <div class='stat-val gold'>8</div>
+            <div class='stat-label'>Apps Found</div>
+          </div>
+          <div class='stat-card'>
+            <div class='stat-val green'>0</div>
+            <div class='stat-label'>Data Leaks</div>
+          </div>
+          <div class='stat-card'>
+            <div class='stat-val white'>3</div>
+            <div class='stat-label'>Activity Records</div>
+          </div>
+          <div class='stat-card'>
+            <div class='stat-val white'>1</div>
+            <div class='stat-label'>Unique Profile</div>
+          </div>
+          <div class='stat-card'>
+            <div class='stat-val white'>3</div>
+            <div class='stat-label'>Names Linked</div>
+          </div>
+          <div class='stat-card'>
+            <div class='stat-val white'>1</div>
+            <div class='stat-label'>Location</div>
+          </div>
+        </div>
+
+        <!-- Apps found -->
+        <div class='sub-head'>Apps &amp; Platforms Found</div>
+
+        <div class='platform-card'>
+          <div class='platform-top'>
+            <div class='platform-name'>
+              <div class='platform-icon icon-wa'>💬</div>
+              WhatsApp — Profile Data
+            </div>
+            <span class='found-badge'>Found</span>
+          </div>
+          <div class='platform-fields'>
+            <div class='field-row'><div class='field-key'>Account Exists</div><div class='field-val'>Yes</div></div>
+            <div class='field-row'><div class='field-key'>Profile Photo</div><div class='field-val'>Retrieved</div></div>
+            <div class='field-row'><div class='field-key'>Linked Email</div><div class='field-val blurred'>user@gmail.com</div></div>
+          </div>
+        </div>
+
+        <div class='platform-card'>
+          <div class='platform-top'>
+            <div class='platform-name'>
+              <div class='platform-icon icon-wa'>💬</div>
+              WhatsApp — Activity
+            </div>
+            <span class='found-badge'>Found</span>
+          </div>
+          <div class='platform-fields'>
+            <div class='field-row'><div class='field-key'>Business Type</div><div class='field-val'>Home Decor</div></div>
+            <div class='field-row'><div class='field-key'>Last Online</div><div class='field-val'>Nov 2025</div></div>
+            <div class='field-row'><div class='field-key'>Photo Changed</div><div class='field-val'>Aug 2019</div></div>
+          </div>
+        </div>
+
+        <div class='platform-card'>
+          <div class='platform-top'>
+            <div class='platform-name'>
+              <div class='platform-icon icon-eye'>👁️</div>
+              Eyecon (Caller ID)
+            </div>
+            <span class='found-badge'>Found</span>
+          </div>
+          <div class='platform-fields'>
+            <div class='field-row'><div class='field-key'>Name on File</div><div class='field-val blurred'>Rahul Sharma</div></div>
+            <div class='field-row'><div class='field-key'>Account Exists</div><div class='field-val'>Yes</div></div>
+          </div>
+        </div>
+
+        <div class='platform-card'>
+          <div class='platform-top'>
+            <div class='platform-name'>
+              <div class='platform-icon icon-wt'>📡</div>
+              Walkie Talkie App
+            </div>
+            <span class='found-badge'>Found</span>
+          </div>
+          <div class='platform-fields'>
+            <div class='field-row'><div class='field-key'>Username</div><div class='field-val blurred'>rk_decor92</div></div>
+            <div class='field-row'><div class='field-key'>Identity Hidden</div><div class='field-val'>No</div></div>
+            <div class='field-row'><div class='field-key'>Created</div><div class='field-val'>Jul 2022</div></div>
+          </div>
+        </div>
+
+        <!-- Activity -->
+        <div class='sub-head'>Activity History</div>
+        <table class='act-table'>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Platform</th>
+              <th>Event</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Nov 12 2025</td>
+              <td><span class='act-platform-dot'></span>WhatsApp</td>
+              <td>Last seen online</td>
+            </tr>
+            <tr>
+              <td>Jul 14 2022</td>
+              <td><span class='act-platform-dot'></span>Walkie Talkie</td>
+              <td>Account created</td>
+            </tr>
+            <tr>
+              <td>Aug 12 2019</td>
+              <td><span class='act-platform-dot'></span>WhatsApp</td>
+              <td>Profile photo updated</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- CTA -->
+        <div class='cta-footer'>
+          <div class='cta-note'>Your phone number report is ready to generate</div>
+          <a class='cta-btn' href='https://wa.me/+919243018483' target='_blank'>Get My Report — ₹298</a>
+          <div class='cta-sub'>WhatsApp us · Delivered within 24 hours</div>
+        </div>
+
+      </div>
+    </div>
+  </div><!-- /panel-phone -->
+
+  <!-- ════════ EMAIL PANEL ════════ -->
+  <div class='panel panel-email'>
+    <div class='report-card'>
+      <div class='report-inner'>
+
+        <div class='report-header'>
+          <div class='report-brand'>🔍 ScanMyShadow</div>
+          <div class='report-meta'>Email Report<br>Sample · 2025</div>
+        </div>
+        <div class='report-divider'></div>
+
+        <!-- Stats -->
+        <div class='stats-grid'>
+          <div class='stat-card'>
+            <div class='stat-val gold'>22</div>
+            <div class='stat-label'>Apps Found</div>
+          </div>
+          <div class='stat-card'>
+            <div class='stat-val red'>26</div>
+            <div class='stat-label'>Data Leaks</div>
+          </div>
+          <div class='stat-card'>
+            <div class='stat-val white'>114</div>
+            <div class='stat-label'>Activity Records</div>
+          </div>
+          <div class='stat-card'>
+            <div class='stat-val red'>71</div>
+            <div class='stat-label'>Locations</div>
+          </div>
+          <div class='stat-card'>
+            <div class='stat-val white'>8</div>
+            <div class='stat-label'>Names Linked</div>
+          </div>
+          <div class='stat-card'>
+            <div class='stat-val white'>9</div>
+            <div class='stat-label'>Unique Profiles</div>
+          </div>
+        </div>
+
+        <!-- Sites grid -->
+        <div class='sub-head'>Registered Sites &amp; Apps</div>
+        <div class='sites-grid'>
+          <div class='site-tile'><span class='site-icon'>🎵</span>Spotify</div>
+          <div class='site-tile'><span class='site-icon'>🐦</span>Twitter / X</div>
+          <div class='site-tile'><span class='site-icon'>📸</span>Instagram</div>
+          <div class='site-tile'><span class='site-icon'>📌</span>Pinterest</div>
+          <div class='site-tile'><span class='site-icon'>💼</span>Fiverr</div>
+          <div class='site-tile'><span class='site-icon'>🎬</span>Vimeo</div>
+          <div class='site-tile'><span class='site-icon'>🎮</span>EA Games</div>
+          <div class='site-tile'><span class='site-icon'>📝</span>WordPress</div>
+          <div class='site-tile'><span class='site-icon'>🎶</span>Gaana</div>
+          <div class='site-tile'><span class='site-icon'>💬</span>Disqus</div>
+          <div class='site-tile'><span class='site-icon'>📷</span>Flickr</div>
+          <div class='site-tile teaser'>+11 more in full report 🔒</div>
+        </div>
+
+        <!-- Breach table -->
+        <div class='sub-head'>Data Leaks Detected</div>
+        <div style='overflow-x:auto;'>
+          <table class='breach-table'>
+            <thead>
+              <tr>
+                <th>Source</th>
+                <th>Records</th>
+                <th>Data Exposed</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div class='breach-source'>Zomato</div>
+                  <div class='breach-date'>May 2017</div>
+                </td>
+                <td><span class='breach-count'>16.4M</span></td>
+                <td>
+                  <div class='breach-tags'>
+                    <span class='breach-tag'>Email</span>
+                    <span class='breach-tag'>Password</span>
+                    <span class='breach-tag'>Username</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class='breach-source'>Domino's India</div>
+                  <div class='breach-date'>Mar 2021</div>
+                </td>
+                <td><span class='breach-count'>22.5M</span></td>
+                <td>
+                  <div class='breach-tags'>
+                    <span class='breach-tag'>Email</span>
+                    <span class='breach-tag'>Phone</span>
+                    <span class='breach-tag'>Address</span>
+                    <span class='breach-tag'>Orders</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class='breach-source'>Canva</div>
+                  <div class='breach-date'>May 2019</div>
+                </td>
+                <td><span class='breach-count'>137.2M</span></td>
+                <td>
+                  <div class='breach-tags'>
+                    <span class='breach-tag'>Email</span>
+                    <span class='breach-tag'>Location</span>
+                    <span class='breach-tag'>Name</span>
+                    <span class='breach-tag'>Password</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class='breach-source'>Twitter 200M</div>
+                  <div class='breach-date'>Jan 2021</div>
+                </td>
+                <td><span class='breach-count'>211.5M</span></td>
+                <td>
+                  <div class='breach-tags'>
+                    <span class='breach-tag'>Email</span>
+                    <span class='breach-tag'>Name</span>
+                    <span class='breach-tag'>Social profile</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class='breach-source'>IndiaMART</div>
+                  <div class='breach-date'>May 2021</div>
+                </td>
+                <td><span class='breach-count'>20.1M</span></td>
+                <td>
+                  <div class='breach-tags'>
+                    <span class='breach-tag'>Email</span>
+                    <span class='breach-tag'>Phone</span>
+                    <span class='breach-tag'>Address</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td style='filter:blur(4px); user-select:none;'>
+                  <div class='breach-source'>Stealer Logs</div>
+                  <div class='breach-date'>Jul 2024</div>
+                </td>
+                <td style='filter:blur(4px); user-select:none;'><span class='breach-count'>26.1M</span></td>
+                <td style='filter:blur(4px); user-select:none;'>
+                  <div class='breach-tags'>
+                    <span class='breach-tag'>Telegram</span>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class='lock-row'>🔒 21 more leaks in your full report</div>
+        </div>
+
+        <!-- Geo entries -->
+        <div class='sub-head'>Places Linked to This Email</div>
+
+        <div class='geo-entry'>
+          <div class='geo-header'>
+            <div class='geo-source'><span class='geo-dot'></span>Google Maps Review</div>
+            <div class='geo-date'>Oct 25 2025</div>
+          </div>
+          <div class='geo-fields'>
+            <div class='field-row'><div class='field-key'>Address</div><div class='field-val blurred'>123, MG Road, Bengaluru</div></div>
+            <div class='field-row'><div class='field-key'>Country</div><div class='field-val'>India</div></div>
+            <div class='field-row'><div class='field-key'>GPS</div><div class='field-val blurred'>12.97°N 77.59°E</div></div>
+            <div class='geo-map-placeholder'>🗺️ Map preview in full report</div>
+          </div>
+        </div>
+
+        <div class='geo-entry faded'>
+          <div class='geo-header'>
+            <div class='geo-source'><span class='geo-dot'></span>Google Maps Review</div>
+            <div class='geo-date'>Jan 2 2025</div>
+          </div>
+          <div class='geo-fields'>
+            <div class='field-row'><div class='field-key'>City</div><div class='field-val'>Bengaluru</div></div>
+            <div class='field-row'><div class='field-key'>Country</div><div class='field-val'>India</div></div>
+          </div>
+        </div>
+
+        <div class='lock-row' style='border-radius:8px; border:1px solid rgba(255,255,255,0.07); margin-top:4px;'>
+          🔒 69 more locations in your full report
+        </div>
+
+        <!-- Activity -->
+        <div class='sub-head'>Activity History (5 of 114)</div>
+        <table class='act-table'>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Platform</th>
+              <th>Event</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Mar 8 2026</td>
+              <td><span class='act-platform-dot'></span>Google</td>
+              <td>Last seen online</td>
+            </tr>
+            <tr>
+              <td>Mar 5 2026</td>
+              <td><span class='act-platform-dot'></span>Microsoft</td>
+              <td>Last seen · OneDrive updated</td>
+            </tr>
+            <tr>
+              <td>Oct 25 2025</td>
+              <td><span class='act-platform-dot'></span>Google Maps</td>
+              <td>Left a review at a location</td>
+            </tr>
+            <tr>
+              <td>Nov 7 2014</td>
+              <td><span class='act-platform-dot'></span>Quora</td>
+              <td>Account created</td>
+            </tr>
+            <tr>
+              <td>Sep 9 2012</td>
+              <td><span class='act-platform-dot'></span>Microsoft</td>
+              <td>Account created · OneDrive started</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- CTA -->
+        <div class='cta-footer'>
+          <div class='cta-note'>Your email report is ready to generate</div>
+          <a class='cta-btn' href='https://wa.me/+919243018483' target='_blank'>Get My Report — ₹298</a>
+          <div class='cta-sub'>WhatsApp us · Delivered within 24 hours</div>
+        </div>
+
+      </div>
+    </div>
+  </div><!-- /panel-email -->
+
+</div><!-- /panels -->
+
+</body>
+</html>
+"
+></iframe>
