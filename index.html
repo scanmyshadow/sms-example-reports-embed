@@ -3,21 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   html, body {
     background: #080d1a;
     color: #fff;
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 14px;
     padding: 32px 16px 32px;
   }
 
   .section-label {
     text-align: center;
-    font-size: 11px;
+    font-size: 16.5px;
     font-weight: 600;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -25,7 +25,7 @@
     margin-bottom: 10px;
   }
   .section-title {
-    font-family: 'DM Serif Display', serif;
+    font-family: 'Inter', sans-serif;
     font-size: clamp(22px, 5vw, 32px);
     text-align: center;
     color: #fff;
@@ -93,7 +93,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(-35deg);
-    font-family: 'DM Serif Display', serif;
+    font-family: 'Inter', sans-serif;
     font-size: clamp(56px, 18vw, 96px);
     font-weight: 700;
     color: rgba(212,175,55,0.06);
@@ -113,7 +113,7 @@
     flex-wrap: wrap;
     gap: 8px;
   }
-  .report-brand { font-family: 'DM Serif Display', serif; font-size: 16px; color: #d4af37; }
+  .report-brand { font-family: 'Inter', sans-serif; font-size: 16px; color: #d4af37; }
   .report-meta { font-size: 11px; color: rgba(255,255,255,0.35); text-align: right; }
   .report-divider {
     height: 1px;
@@ -136,7 +136,7 @@
     padding: 10px 8px;
     text-align: center;
   }
-  .stat-val { font-family: 'DM Serif Display', serif; font-size: 22px; line-height: 1; margin-bottom: 4px; }
+  .stat-val { font-family: 'Inter', sans-serif; font-size: 22px; line-height: 1; margin-bottom: 4px; }
   .stat-val.red { color: #e05c5c; }
   .stat-val.gold { color: #d4af37; }
   .stat-val.green { color: #3ecf8e; }
@@ -177,8 +177,8 @@
   .icon-eye { background: rgba(99,179,237,0.15); }
   .icon-wt { background: rgba(212,175,55,0.15); }
   .found-badge {
-    font-size: 10px; font-weight: 600; color: #3ecf8e;
-    background: rgba(62,207,142,0.1); border: 1px solid rgba(62,207,142,0.2);
+    font-size: 10px; font-weight: 600; color: #080d1a;
+    background: #d4af37; border: 1px solid #d4af37;
     padding: 2px 8px; border-radius: 20px;
   }
   .platform-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
@@ -267,7 +267,7 @@
   .cta-note { font-size: 11px; color: rgba(255,255,255,0.3); margin-bottom: 12px; }
   .cta-btn {
     display: inline-block; background: #d4af37; color: #080d1a;
-    font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 700;
+    font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700;
     padding: 13px 28px; border-radius: 999px; text-decoration: none;
     letter-spacing: 0.3px; transition: opacity 0.2s, transform 0.1s;
   }
@@ -278,8 +278,8 @@
 <body>
 
 <div class="section-label">Sample Report</div>
-<h2 class="section-title">See Exactly What You'll Receive</h2>
-<p class="section-sub">Real data format. Sensitive fields blurred. Your full report will include everything unlocked.</p>
+<h2 class="section-title">This Is What Strangers Can Already See About You</h2>
+<p class="section-sub">Here's what one real scan uncovered. Sensitive fields blurred. Your full report includes everything — unlocked.</p>
 
 <input type="radio" class="tab-inputs" id="tab-phone" name="tabs" checked>
 <input type="radio" class="tab-inputs" id="tab-email" name="tabs">
@@ -298,7 +298,7 @@
 
         <div class="report-header">
           <div class="report-brand">🔍 ScanMyShadow</div>
-          <div class="report-meta">Phone Report<br>Sample · 2025</div>
+          <div class="report-meta">Phone Report<br>March 2026</div>
         </div>
         <div class="report-divider"></div>
 
@@ -372,7 +372,7 @@
 
         <div class="cta-footer">
           <div class="cta-note">Your phone number report is ready to generate</div>
-          <a class="cta-btn" href="#embed06">Get My Report — ₹298</a>
+          <a class="cta-btn" href="https://scanmyshadow.com/#embed06" target="_top">Get My Report — ₹298</a>
           <div class="cta-sub">Phone &amp; email results in 5 mins · Photo scan within 24 hours</div>
         </div>
 
@@ -387,7 +387,7 @@
 
         <div class="report-header">
           <div class="report-brand">🔍 ScanMyShadow</div>
-          <div class="report-meta">Email Report<br>Sample · 2025</div>
+          <div class="report-meta">Email Report<br>March 2026</div>
         </div>
         <div class="report-divider"></div>
 
@@ -416,7 +416,7 @@
           <div class="site-tile teaser">+11 more in full report 🔒</div>
         </div>
 
-        <div class="sub-head">Data Leaks Detected</div>
+        <div class="sub-head">Your Data Was Exposed</div>
         <div style="overflow-x:auto;">
           <table class="breach-table">
             <thead><tr><th>Source</th><th>Records</th><th>Data Exposed</th></tr></thead>
@@ -500,7 +500,7 @@
 
         <div class="cta-footer">
           <div class="cta-note">Your email report is ready to generate</div>
-          <a class="cta-btn" href="#embed06">Get My Report — ₹298</a>
+          <a class="cta-btn" href="https://scanmyshadow.com/#embed06" target="_top">Get My Report — ₹298</a>
           <div class="cta-sub">Phone &amp; email results in 5 mins · Photo scan within 24 hours</div>
         </div>
 
