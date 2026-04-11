@@ -192,23 +192,13 @@ body {
 .photo-match-card.alarming { border-color: rgba(224,92,92,0.4); }
 .match-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
 .match-platform { font-size: 13px; font-weight: 700; }
-.confidence-badge { font-size: 11px; font-weight: 700; padding: 2px 9px; border-radius: 999px; background: rgba(224,92,92,0.15); border: 1px solid rgba(224,92,92,0.3); color: var(--red); }
 .fake-badge { display: inline-flex; align-items: center; gap: 4px; font-size: 10.5px; font-weight: 600; color: var(--red); background: rgba(224,92,92,0.1); border: 1px solid rgba(224,92,92,0.25); border-radius: 4px; padding: 2px 8px; margin-bottom: 8px; }
 .photo-thumb-placeholder { width: 100%; height: 130px; background: rgba(255,255,255,0.05); border: 1px solid var(--card-border); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; color: var(--muted); filter: blur(6px); user-select: none; margin-bottom: 8px; }
 .photo-summary-box { background: rgba(212,175,55,0.05); border: 1px solid rgba(212,175,55,0.18); border-radius: 8px; padding: 16px; margin: 12px 0 4px; }
 .photo-summary-box .psb-title { font-size: 12px; font-weight: 700; color: var(--gold); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.08em; }
 .photo-summary-box p { font-size: 12.5px; color: rgba(255,255,255,0.65); line-height: 1.6; }
-.calm-note {
-  background: rgba(62,207,142,0.07); border: 1px solid rgba(62,207,142,0.2);
-  border-radius: 8px; padding: 11px 13px; margin: 12px 0 4px;
-  font-size: 12px; color: rgba(255,255,255,0.65); line-height: 1.55;
-}
-.concierge-note {
-  display: flex; align-items: flex-start; gap: 10px;
-  background: rgba(212,175,55,0.05); border: 1px solid rgba(212,175,55,0.18);
-  border-radius: 8px; padding: 11px 13px; margin: 8px 0 4px;
-  font-size: 12px; color: rgba(255,255,255,0.65); line-height: 1.55;
-}
+.calm-note { background: rgba(62,207,142,0.07); border: 1px solid rgba(62,207,142,0.2); border-radius: 8px; padding: 11px 13px; margin: 12px 0 4px; font-size: 12px; color: rgba(255,255,255,0.65); line-height: 1.55; }
+.concierge-note { display: flex; align-items: flex-start; gap: 10px; background: rgba(212,175,55,0.05); border: 1px solid rgba(212,175,55,0.18); border-radius: 8px; padding: 11px 13px; margin: 8px 0 4px; font-size: 12px; color: rgba(255,255,255,0.65); line-height: 1.55; }
 .concierge-note .lock-icon { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
 .cta-wrap { text-align: center; padding: 20px 16px 16px; position: relative; z-index: 1; }
 .cta-btn { display: inline-block; background: var(--gold); color: #191919; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700; padding: 13px 28px; border-radius: 999px; text-decoration: none; border: none; cursor: pointer; transition: opacity 0.2s, transform 0.15s; }
@@ -290,20 +280,20 @@ body {
   <!-- IF LEAKS FOUND -->
   <div id="panel-hits" class="panel">
     <div class="l2-wrap">
-      <button class="l2-btn active" onclick="switchL2(this,'sub-basic')">Basic Scan</button>
+      <button class="l2-btn active" onclick="switchL2(this,'sub-basic')">Privacy Scan</button>
       <button class="l2-btn" onclick="switchL2(this,'sub-deep')">Deep Dive</button>
     </div>
 
-    <!-- BASIC SCAN -->
+    <!-- PRIVACY SCAN -->
     <div id="sub-basic" class="sub-panel active">
-      <p class="panel-note">Select a tab below to preview what your report covers — your phone, email, and photo results each appear separately.</p>
+      <p class="panel-note">This is how your Privacy Scan report will look, if leaks are found. Tap a tab to explore each section — phone, email, and photo. <span>Your final report will be shared with you on WhatsApp as a PDF.</span></p>
       <div class="l3-wrap">
         <button class="l3-btn active" onclick="switchL3(this,'b-phone')">📱 Phone</button>
         <button class="l3-btn" onclick="switchL3(this,'b-email')">✉ Email</button>
         <button class="l3-btn" onclick="switchL3(this,'b-photo')">📷 Photo</button>
       </div>
 
-      <!-- BASIC PHONE -->
+      <!-- PRIVACY PHONE -->
       <div id="b-phone" class="l3-panel active">
         <div class="report-card">
           <div class="report-header">
@@ -312,7 +302,7 @@ body {
           </div>
           <div class="report-divider"></div>
           <div class="card-body">
-            <div class="tier-badge tier-basic">Basic Scan</div>
+            <div class="tier-badge tier-basic">Privacy Scan</div>
             <div class="summary-stats">
               <div class="stat-box"><div class="num gold">8</div><div class="lbl">Apps Found</div></div>
               <div class="stat-box"><div class="num green">0</div><div class="lbl">Data Leaks</div></div>
@@ -397,7 +387,7 @@ body {
         </div>
       </div>
 
-      <!-- BASIC EMAIL -->
+      <!-- PRIVACY EMAIL -->
       <div id="b-email" class="l3-panel">
         <div class="report-card">
           <div class="report-header">
@@ -406,7 +396,7 @@ body {
           </div>
           <div class="report-divider"></div>
           <div class="card-body">
-            <div class="tier-badge tier-basic">Basic Scan</div>
+            <div class="tier-badge tier-basic">Privacy Scan</div>
             <div class="summary-stats">
               <div class="stat-box"><div class="num gold">22</div><div class="lbl">Apps Found</div></div>
               <div class="stat-box"><div class="num red">26</div><div class="lbl">Data Leaks</div></div>
@@ -466,7 +456,7 @@ body {
         </div>
       </div>
 
-      <!-- BASIC PHOTO -->
+      <!-- PRIVACY PHOTO -->
       <div id="b-photo" class="l3-panel">
         <div class="report-card">
           <div class="report-header">
@@ -475,14 +465,15 @@ body {
           </div>
           <div class="report-divider"></div>
           <div class="card-body">
-            <div class="tier-badge tier-basic">Basic Scan</div>
+            <div class="tier-badge tier-basic">Privacy Scan</div>
             <div class="summary-stats">
               <div class="stat-box"><div class="num red">5</div><div class="lbl">Matches Found</div></div>
               <div class="stat-box"><div class="num red">2</div><div class="lbl">Fake Profiles</div></div>
+              <div class="stat-box"><div class="num green">✓</div><div class="lbl">Photo Analysed</div></div>
             </div>
             <div class="section-title">Photo Matches</div>
             <div class="photo-match-card alarming">
-              <div class="match-header"><div class="match-platform">⚠ Unknown Social Site</div><div class="confidence-badge">94% match</div></div>
+              <div class="match-header"><div class="match-platform">⚠ Unknown Social Site</div></div>
               <div class="fake-badge">⛔ Fake Profile Detected</div>
               <div class="photo-thumb-placeholder">[ Profile Photo ]</div>
               <div class="field-grid" style="margin-bottom:8px;">
@@ -491,7 +482,7 @@ body {
               </div>
             </div>
             <div class="photo-match-card alarming">
-              <div class="match-header"><div class="match-platform">⚠ Dating Platform</div><div class="confidence-badge">88% match</div></div>
+              <div class="match-header"><div class="match-platform">⚠ Dating Platform</div></div>
               <div class="fake-badge">⛔ Fake Profile Detected</div>
               <div class="photo-thumb-placeholder">[ Profile Photo ]</div>
               <div class="field-grid" style="margin-bottom:8px;">
@@ -500,7 +491,7 @@ body {
               </div>
             </div>
             <div class="photo-match-card">
-              <div class="match-header"><div class="match-platform">Social Media</div><div class="confidence-badge">81% match</div></div>
+              <div class="match-header"><div class="match-platform">Social Media</div></div>
               <div class="photo-thumb-placeholder">[ Profile Photo ]</div>
               <div class="field-grid" style="margin-bottom:8px;">
                 <div class="field-row"><div class="field-key">Platform</div><div class="field-val blur">███████.com</div></div>
@@ -508,7 +499,7 @@ body {
               </div>
             </div>
             <div class="photo-match-card">
-              <div class="match-header"><div class="match-platform">News Article</div><div class="confidence-badge">76% match</div></div>
+              <div class="match-header"><div class="match-platform">News Article</div></div>
               <div class="photo-thumb-placeholder">[ Photo in Article ]</div>
               <div class="field-grid" style="margin-bottom:8px;">
                 <div class="field-row"><div class="field-key">Publication</div><div class="field-val blur">local****.in</div></div>
@@ -516,7 +507,7 @@ body {
               </div>
             </div>
             <div class="photo-match-card">
-              <div class="match-header"><div class="match-platform">Forum / Community</div><div class="confidence-badge">71% match</div></div>
+              <div class="match-header"><div class="match-platform">Forum / Community</div></div>
               <div class="photo-thumb-placeholder">[ Profile Photo ]</div>
               <div class="field-grid" style="margin-bottom:8px;">
                 <div class="field-row"><div class="field-key">Platform</div><div class="field-val blur">██████.org</div></div>
@@ -544,7 +535,7 @@ body {
 
     <!-- DEEP DIVE -->
     <div id="sub-deep" class="sub-panel">
-      <p class="panel-note">Everything in your Basic Scan — plus full breach details, all locations, complete activity history, and photo matches. <span>Only offered when leaks are found in your Basic Scan report.</span></p>
+      <p class="panel-note">Everything in your Privacy Scan — plus full breach details, all locations, complete activity history, and photo matches. <span>Only offered when leaks are found in your Basic Scan report.</span></p>
       <div class="l3-wrap">
         <button class="l3-btn active" onclick="switchL3(this,'d-phone')">📱 Phone</button>
         <button class="l3-btn" onclick="switchL3(this,'d-email')">✉ Email</button>
@@ -576,7 +567,7 @@ body {
               <div class="field-grid">
                 <div class="field-row"><div class="field-key">Account Exists</div><div class="field-val">Yes</div></div>
                 <div class="field-row"><div class="field-key">Profile Photo</div><div class="field-val">Retrieved</div></div>
-                <div class="field-row" style="grid-column:1/-1"><div class="field-key">Linked Email</div><div class="field-val">tushar.mehta92@gmail.com</div></div>
+                <div class="field-row" style="grid-column:1/-1"><div class="field-key">Linked Email</div><div class="field-val">tushar.m589xrp@gmail.com</div></div>
               </div>
             </div>
             <div class="platform-card">
@@ -752,12 +743,13 @@ body {
           <div class="card-body">
             <div class="tier-badge tier-deep">⭐ Deep Dive</div>
             <div class="summary-stats">
-              <div class="stat-box"><div class="num red">6</div><div class="lbl">Matches Found</div></div>
+              <div class="stat-box"><div class="num red">5</div><div class="lbl">Matches Found</div></div>
               <div class="stat-box"><div class="num red">2</div><div class="lbl">Fake Profiles</div></div>
+              <div class="stat-box"><div class="num green">✓</div><div class="lbl">Photo Analysed</div></div>
             </div>
             <div class="section-title">Photo Matches</div>
             <div class="photo-match-card alarming">
-              <div class="match-header"><div class="match-platform">⚠ Unknown Social Site</div><div class="confidence-badge">94% match</div></div>
+              <div class="match-header"><div class="match-platform">⚠ Unknown Social Site</div></div>
               <div class="fake-badge">⛔ Fake Profile Detected</div>
               <div class="photo-thumb-placeholder">[ Profile Photo ]</div>
               <div class="field-grid" style="margin-bottom:8px;">
@@ -767,7 +759,7 @@ body {
               </div>
             </div>
             <div class="photo-match-card alarming">
-              <div class="match-header"><div class="match-platform">⚠ Dating Platform</div><div class="confidence-badge">88% match</div></div>
+              <div class="match-header"><div class="match-platform">⚠ Dating Platform</div></div>
               <div class="fake-badge">⛔ Fake Profile Detected</div>
               <div class="photo-thumb-placeholder">[ Profile Photo ]</div>
               <div class="field-grid" style="margin-bottom:8px;">
@@ -777,7 +769,7 @@ body {
               </div>
             </div>
             <div class="photo-match-card">
-              <div class="match-header"><div class="match-platform">Social Media</div><div class="confidence-badge">81% match</div></div>
+              <div class="match-header"><div class="match-platform">Social Media</div></div>
               <div class="photo-thumb-placeholder">[ Profile Photo ]</div>
               <div class="field-grid" style="margin-bottom:8px;">
                 <div class="field-row"><div class="field-key">Platform</div><div class="field-val">localconnect.in</div></div>
@@ -786,7 +778,7 @@ body {
               </div>
             </div>
             <div class="photo-match-card">
-              <div class="match-header"><div class="match-platform">News Article</div><div class="confidence-badge">76% match</div></div>
+              <div class="match-header"><div class="match-platform">News Article</div></div>
               <div class="photo-thumb-placeholder">[ Photo in Article ]</div>
               <div class="field-grid" style="margin-bottom:8px;">
                 <div class="field-row"><div class="field-key">Publication</div><div class="field-val">localpress.in</div></div>
@@ -795,21 +787,12 @@ body {
               </div>
             </div>
             <div class="photo-match-card">
-              <div class="match-header"><div class="match-platform">Forum / Community</div><div class="confidence-badge">71% match</div></div>
+              <div class="match-header"><div class="match-platform">Forum / Community</div></div>
               <div class="photo-thumb-placeholder">[ Profile Photo ]</div>
               <div class="field-grid" style="margin-bottom:8px;">
                 <div class="field-row"><div class="field-key">Platform</div><div class="field-val">indiaforums.org</div></div>
                 <div class="field-row"><div class="field-key">Profile Name</div><div class="field-val">Tushar92</div></div>
                 <div class="field-row" style="grid-column:1/-1"><div class="field-key">Direct URL</div><div class="field-val" style="font-size:11px;word-break:break-all;">https://indiaforums.org/members/tushar92</div></div>
-              </div>
-            </div>
-            <div class="photo-match-card">
-              <div class="match-header"><div class="match-platform">Professional Network</div><div class="confidence-badge">65% match</div></div>
-              <div class="photo-thumb-placeholder">[ Profile Photo ]</div>
-              <div class="field-grid" style="margin-bottom:8px;">
-                <div class="field-row"><div class="field-key">Platform</div><div class="field-val">naukri.com</div></div>
-                <div class="field-row"><div class="field-key">Profile Name</div><div class="field-val">Tushar Mehta</div></div>
-                <div class="field-row" style="grid-column:1/-1"><div class="field-key">Direct URL</div><div class="field-val" style="font-size:11px;word-break:break-all;">https://naukri.com/profile/tushar-mehta-bengaluru</div></div>
               </div>
             </div>
             <div class="photo-summary-box">
