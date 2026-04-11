@@ -831,4 +831,11 @@ function switchL2(btn, id) {
 }
 function switchL3(btn, id) {
   var parent = btn.closest('.sub-panel');
-  parent.querySelectorAll('.l3-btn').forEach(function(b){ b.class
+  parent.querySelectorAll('.l3-btn').forEach(function(b){ b.classList.remove('active'); });
+  parent.querySelectorAll('.l3-panel').forEach(function(p){ p.classList.remove('active'); });
+  btn.classList.add('active');
+  document.getElementById(id).classList.add('active');
+}
+</script>
+</body>
+</html>
