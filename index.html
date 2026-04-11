@@ -50,7 +50,7 @@ body {
 .hero-label {
   position: relative; z-index: 1;
   font-family: 'Inter', sans-serif;
-  font-size: 16px; font-weight: 700;
+  font-size: 18px; font-weight: 700;
   letter-spacing: 0.28em; text-transform: uppercase;
   margin-bottom: 20px;
   background: linear-gradient(90deg, #b8922a, #f0d060, #d4af37, #f0d060, #b8922a);
@@ -61,9 +61,9 @@ body {
 @keyframes shimmer { 0% { background-position: 0% center; } 100% { background-position: 300% center; } }
 .hero-heading {
   position: relative; z-index: 1;
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(19px, 4.5vw, 28px); font-weight: 900;
-  line-height: 1.18; color: #fff; margin-bottom: 0; letter-spacing: -0.02em;
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(19px, 4.5vw, 28px); font-weight: 600;
+  line-height: 1.25; color: #fff; margin-bottom: 0; letter-spacing: -0.01em;
 }
 .hero-divider {
   position: relative; z-index: 1;
@@ -187,6 +187,7 @@ body {
 .place-type { font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.8); }
 .place-date { font-size: 11px; color: var(--muted); }
 .place-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; }
+.place-fields .field-row.full { grid-column: 1 / -1; }
 .photo-match-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(224,92,92,0.25); border-radius: 8px; padding: 12px; margin-bottom: 8px; }
 .photo-match-card.alarming { border-color: rgba(224,92,92,0.4); }
 .match-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
@@ -209,9 +210,9 @@ body {
 .cta-wrap { text-align: center; padding: 20px 16px 16px; position: relative; z-index: 1; }
 .cta-btn { display: inline-block; background: var(--gold); color: #191919; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700; padding: 13px 28px; border-radius: 999px; text-decoration: none; border: none; cursor: pointer; transition: opacity 0.2s, transform 0.15s; }
 .cta-btn:hover { opacity: 0.9; transform: translateY(-1px); }
-.cta-sub { font-size: 11.5px; color: var(--muted); margin-top: 8px; }
-.cta-nudge { font-size: 11.5px; color: rgba(255,255,255,0.3); margin-top: 10px; font-style: italic; }
-.panel-note { font-size: 12px; color: var(--muted); text-align: center; margin-bottom: 14px; padding: 0 4px; line-height: 1.5; }
+.cta-sub { font-size: 12.5px; color: var(--muted); margin-top: 8px; }
+.cta-nudge { font-size: 12.5px; color: rgba(255,255,255,0.3); margin-top: 10px; font-style: italic; }
+.panel-note { font-size: 14px; color: var(--muted); text-align: center; margin-bottom: 14px; padding: 0 4px; line-height: 1.5; }
 .panel-note span { color: var(--gold); font-weight: 600; }
 </style>
 </head>
@@ -220,13 +221,12 @@ body {
 <div class="hero">
   <div class="hero-rule"></div>
   <div class="hero-label">Sample Report</div>
-  <h2 class="hero-heading">This Is What Strangers<br>Can Already See About You</h2>
+  <h2 class="hero-heading">Your Data Is Out There.<br>Let's Find It.</h2>
   <div class="hero-divider"></div>
   <p class="hero-sub">This is a sample report for illustration only. Your actual findings may vary based on your personal digital footprint.</p>
 </div>
 
 <div class="tab-wrap">
-
   <div class="l1-tabs">
     <button class="tab-btn active" onclick="switchL1(this,'panel-clean')">✓ If No Leaks</button>
     <button class="tab-btn" onclick="switchL1(this,'panel-hits')">⚠ If Leaks Found</button>
@@ -249,7 +249,7 @@ body {
         <div class="clean-stats">
           <div class="clean-stat"><div class="num">0</div><div class="lbl">Data Leaks</div></div>
           <div class="clean-stat"><div class="num">0</div><div class="lbl">Apps Found</div></div>
-          <div class="clean-stat"><div class="num">0</div><div class="lbl">Locations Exposed</div></div>
+          <div class="clean-stat"><div class="num">0</div><div class="lbl">Locations Leaked</div></div>
         </div>
         <div class="section-title">What Was Scanned</div>
         <div class="checked-list">
@@ -293,7 +293,7 @@ body {
 
     <!-- BASIC SCAN -->
     <div id="sub-basic" class="sub-panel active">
-      <p class="panel-note">Your scan report — confirms what was found and where.</p>
+      <p class="panel-note">Select a tab below to preview what your report covers — your phone, email, and photo results each appear separately.</p>
       <div class="l3-wrap">
         <button class="l3-btn active" onclick="switchL3(this,'b-phone')">📱 Phone</button>
         <button class="l3-btn" onclick="switchL3(this,'b-email')">✉ Email</button>
@@ -341,6 +341,32 @@ body {
                 <div class="field-row"><div class="field-key">Account Exists</div><div class="field-val">Yes</div></div>
               </div>
             </div>
+            <div class="platform-card">
+              <div class="platform-card-header"><div class="platform-name"><div class="platform-icon">📞</div>Truecaller</div><span class="found-badge">FOUND</span></div>
+              <div class="platform-type">Caller ID App</div>
+              <div class="field-grid">
+                <div class="field-row"><div class="field-key">Name on File</div><div class="field-val blur">T**** Mehta</div></div>
+                <div class="field-row"><div class="field-key">Spam Score</div><div class="field-val">Low</div></div>
+              </div>
+            </div>
+            <div class="platform-card">
+              <div class="platform-card-header"><div class="platform-name"><div class="platform-icon">📱</div>Instagram</div><span class="found-badge">FOUND</span></div>
+              <div class="platform-type">Social Media</div>
+              <div class="field-grid">
+                <div class="field-row"><div class="field-key">Profile Found</div><div class="field-val">Yes</div></div>
+                <div class="field-row"><div class="field-key">Account Type</div><div class="field-val">Personal</div></div>
+                <div class="field-row" style="grid-column:1/-1"><div class="field-key">Username</div><div class="field-val blur">t****_m****</div></div>
+              </div>
+            </div>
+            <div class="platform-card">
+              <div class="platform-card-header"><div class="platform-name"><div class="platform-icon">💼</div>LinkedIn</div><span class="found-badge">FOUND</span></div>
+              <div class="platform-type">Professional Network</div>
+              <div class="field-grid">
+                <div class="field-row"><div class="field-key">Profile Found</div><div class="field-val">Yes</div></div>
+                <div class="field-row"><div class="field-key">Connections</div><div class="field-val blur">***+</div></div>
+                <div class="field-row" style="grid-column:1/-1"><div class="field-key">Headline</div><div class="field-val blur">Freelance C******** | B*******</div></div>
+              </div>
+            </div>
             <div class="section-title">Activity History</div>
             <div class="table-wrap">
               <table class="activity-table">
@@ -348,6 +374,9 @@ body {
                 <tbody>
                   <tr><td>Nov 12, 2025</td><td class="activity-platform">WhatsApp</td><td>Last seen online</td></tr>
                   <tr><td>Aug 12, 2019</td><td class="activity-platform">WhatsApp</td><td>Profile photo updated</td></tr>
+                  <tr><td>Mar 4, 2024</td><td class="activity-platform">Instagram</td><td>Profile photo updated</td></tr>
+                  <tr><td>Jan 18, 2023</td><td class="activity-platform">LinkedIn</td><td>Profile updated</td></tr>
+                  <tr><td>Feb 3, 2018</td><td class="activity-platform">Truecaller</td><td>Number registered</td></tr>
                 </tbody>
               </table>
             </div>
@@ -387,16 +416,22 @@ body {
               <div class="site-pill">Instagram</div>
               <div class="site-pill">Pinterest</div>
               <div class="site-pill">Fiverr</div>
-              <div class="site-pill more">+17 more</div>
+              <div class="site-pill">Naukri</div>
+              <div class="site-pill">MakeMyTrip</div>
+              <div class="site-pill">Swiggy</div>
+              <div class="site-pill more">+14 more</div>
             </div>
-            <div class="section-title" style="margin-top:18px;">Your Data Was Exposed In</div>
+            <div class="section-title" style="margin-top:18px;">Your Data Was Leaked In</div>
             <div class="breach-table-wrap">
               <table class="breach-table">
-                <thead><tr><th>Source</th><th>Date</th><th>Data Exposed</th></tr></thead>
+                <thead><tr><th>Source</th><th>Date</th><th>Data Leaked</th></tr></thead>
                 <tbody>
-                  <tr><td><div class="breach-site">Zomato</div><div class="breach-size">16.4M records</div></td><td style="color:var(--muted);font-size:11px;white-space:nowrap;">May 2017</td><td><div class="data-tags"><span class="data-tag">Email</span><span class="data-tag">Password</span><span class="data-tag">Username</span></div></td></tr>
-                  <tr><td><div class="breach-site">Domino's India</div><div class="breach-size">22.5M records</div></td><td style="color:var(--muted);font-size:11px;white-space:nowrap;">Mar 2021</td><td><div class="data-tags"><span class="data-tag">Email</span><span class="data-tag">Phone</span><span class="data-tag">Address</span></div></td></tr>
-                  <tr><td><div class="breach-site">Canva</div><div class="breach-size">137.2M records</div></td><td style="color:var(--muted);font-size:11px;white-space:nowrap;">May 2019</td><td><div class="data-tags"><span class="data-tag">Email</span><span class="data-tag">Name</span><span class="data-tag">Password</span></div></td></tr>
+                  <tr><td><div class="breach-site">Zomato</div><div class="breach-size">1.64 Crore records</div></td><td style="color:var(--muted);font-size:11px;white-space:nowrap;">May 2017</td><td><div class="data-tags"><span class="data-tag">Email</span><span class="data-tag">Password</span><span class="data-tag">Username</span></div></td></tr>
+                  <tr><td><div class="breach-site">Domino's India</div><div class="breach-size">2.25 Crore records</div></td><td style="color:var(--muted);font-size:11px;white-space:nowrap;">Mar 2021</td><td><div class="data-tags"><span class="data-tag">Email</span><span class="data-tag">Phone</span><span class="data-tag">Address</span></div></td></tr>
+                  <tr><td><div class="breach-site">Canva</div><div class="breach-size">13.7 Crore records</div></td><td style="color:var(--muted);font-size:11px;white-space:nowrap;">May 2019</td><td><div class="data-tags"><span class="data-tag">Email</span><span class="data-tag">Name</span><span class="data-tag">Password</span></div></td></tr>
+                  <tr><td><div class="breach-site">BigBasket</div><div class="breach-size">2 Crore records</div></td><td style="color:var(--muted);font-size:11px;white-space:nowrap;">Oct 2020</td><td><div class="data-tags"><span class="data-tag">Email</span><span class="data-tag">Phone</span><span class="data-tag">Address</span><span class="data-tag">Password</span></div></td></tr>
+                  <tr><td><div class="breach-site">MobiKwik</div><div class="breach-size">10 Crore records</div></td><td style="color:var(--muted);font-size:11px;white-space:nowrap;">Mar 2021</td><td><div class="data-tags"><span class="data-tag">Email</span><span class="data-tag">Phone</span><span class="data-tag">KYC Data</span></div></td></tr>
+                  <tr><td><div class="breach-site">Air India</div><div class="breach-size">45 Lakh records</div></td><td style="color:var(--muted);font-size:11px;white-space:nowrap;">May 2021</td><td><div class="data-tags"><span class="data-tag">Name</span><span class="data-tag">DOB</span><span class="data-tag">Passport</span><span class="data-tag">Email</span></div></td></tr>
                 </tbody>
               </table>
             </div>
@@ -407,7 +442,10 @@ body {
                 <tbody>
                   <tr><td>Apr 8, 2026</td><td class="activity-platform">Google</td><td>Last seen online</td></tr>
                   <tr><td>Oct 25, 2025</td><td class="activity-platform">Google Maps</td><td>Left a review at a location</td></tr>
+                  <tr><td>Feb 14, 2024</td><td class="activity-platform">Naukri</td><td>Resume updated</td></tr>
                   <tr><td>Nov 7, 2014</td><td class="activity-platform">Quora</td><td>Account created</td></tr>
+                  <tr><td>Aug 3, 2013</td><td class="activity-platform">Zomato</td><td>Account created</td></tr>
+                  <tr><td>Sep 9, 2012</td><td class="activity-platform">Microsoft</td><td>Account created</td></tr>
                 </tbody>
               </table>
             </div>
@@ -436,9 +474,9 @@ body {
           <div class="card-body">
             <div class="tier-badge tier-basic">Basic Scan</div>
             <div class="summary-stats">
-              <div class="stat-box"><div class="num red">3</div><div class="lbl">Matches Found</div></div>
-              <div class="stat-box"><div class="num red">1</div><div class="lbl">Fake Profile</div></div>
-              <div class="stat-box"><div class="num gold">94%</div><div class="lbl">Top Confidence</div></div>
+              <div class="stat-box"><div class="num red">5</div><div class="lbl">Matches Found</div></div>
+              <div class="stat-box"><div class="num red">2</div><div class="lbl">Fake Profiles</div></div>
+              <div class="stat-box"><div class="num gold">94%</div><div class="lbl">Top Match</div></div>
             </div>
             <div class="section-title">Photo Matches</div>
             <div class="photo-match-card alarming">
@@ -448,6 +486,39 @@ body {
               <div class="field-grid" style="margin-bottom:8px;">
                 <div class="field-row"><div class="field-key">Platform</div><div class="field-val blur">███████.com</div></div>
                 <div class="field-row"><div class="field-key">Profile Name</div><div class="field-val blur">Tushar M****</div></div>
+              </div>
+            </div>
+            <div class="photo-match-card alarming">
+              <div class="match-header"><div class="match-platform">⚠ Dating Platform</div><div class="confidence-badge">88% match</div></div>
+              <div class="fake-badge">⛔ Fake Profile Detected</div>
+              <div class="photo-thumb-placeholder">[ Profile Photo ]</div>
+              <div class="field-grid" style="margin-bottom:8px;">
+                <div class="field-row"><div class="field-key">Platform</div><div class="field-val blur">███████.net</div></div>
+                <div class="field-row"><div class="field-key">Profile Name</div><div class="field-val blur">T**** S****</div></div>
+              </div>
+            </div>
+            <div class="photo-match-card">
+              <div class="match-header"><div class="match-platform">Social Media</div><div class="confidence-badge">81% match</div></div>
+              <div class="photo-thumb-placeholder">[ Profile Photo ]</div>
+              <div class="field-grid" style="margin-bottom:8px;">
+                <div class="field-row"><div class="field-key">Platform</div><div class="field-val blur">███████.com</div></div>
+                <div class="field-row"><div class="field-key">Profile Name</div><div class="field-val blur">T**** M****</div></div>
+              </div>
+            </div>
+            <div class="photo-match-card">
+              <div class="match-header"><div class="match-platform">News Article</div><div class="confidence-badge">76% match</div></div>
+              <div class="photo-thumb-placeholder">[ Photo in Article ]</div>
+              <div class="field-grid" style="margin-bottom:8px;">
+                <div class="field-row"><div class="field-key">Publication</div><div class="field-val blur">local****.in</div></div>
+                <div class="field-row"><div class="field-key">Context</div><div class="field-val">Event photo</div></div>
+              </div>
+            </div>
+            <div class="photo-match-card">
+              <div class="match-header"><div class="match-platform">Forum / Community</div><div class="confidence-badge">71% match</div></div>
+              <div class="photo-thumb-placeholder">[ Profile Photo ]</div>
+              <div class="field-grid" style="margin-bottom:8px;">
+                <div class="field-row"><div class="field-key">Platform</div><div class="field-val blur">██████.org</div></div>
+                <div class="field-row"><div class="field-key">Profile Name</div><div class="field-val blur">T****92</div></div>
               </div>
             </div>
             <div class="concierge-note">
@@ -467,7 +538,7 @@ body {
 
     <!-- DEEP DIVE -->
     <div id="sub-deep" class="sub-panel">
-      <p class="panel-note">Everything in your Basic Scan — plus full breach details, all locations, complete activity history, and photo matches. <span>Only offered when leaks are found in your report.</span></p>
+      <p class="panel-note">Everything in your Basic Scan — plus full breach details, all locations, complete activity history, and photo matches. <span>Only offered when leaks are found in your Basic Scan report.</span></p>
       <div class="l3-wrap">
         <button class="l3-btn active" onclick="switchL3(this,'d-phone')">📱 Phone</button>
         <button class="l3-btn" onclick="switchL3(this,'d-email')">✉ Email</button>
@@ -590,7 +661,7 @@ body {
               <div class="stat-box"><div class="num gold">22</div><div class="lbl">Apps Found</div></div>
               <div class="stat-box"><div class="num red">26</div><div class="lbl">Data Leaks</div></div>
               <div class="stat-box"><div class="num gold">114</div><div class="lbl">Activity Records</div></div>
-              <div class="stat-box"><div class="num red">71</div><div class="lbl">Locations</div></div>
+              <div class="stat-box"><div class="num red">71</div><div class="lbl">Locations Leaked</div></div>
               <div class="stat-box"><div class="num gold">8</div><div class="lbl">Names Linked</div></div>
               <div class="stat-box"><div class="num gold">9</div><div class="lbl">Unique Profiles</div></div>
             </div>
@@ -603,17 +674,17 @@ body {
               <div class="site-pill">Gaana</div><div class="site-pill">Disqus</div>
               <div class="site-pill">Flickr</div><div class="site-pill more">+11 more</div>
             </div>
-            <div class="section-title" style="margin-top:18px;">Your Data Was Exposed In</div>
+            <div class="section-title" style="margin-top:18px;">Your Data Was Leaked In</div>
             <div class="breach-table-wrap">
               <table class="breach-table">
-                <thead><tr><th>Source</th><th>Date</th><th>Data Exposed</th></tr></thead>
+                <thead><tr><th>Source</th><th>Date</th><th>Data Leaked</th></tr></thead>
                 <tbody>
-                  <tr><td><div class="breach-site">Zomato</div><div class="breach-size">16.4M records</div></td><td style="color:var(--muted);font-size:11px;white-space:nowrap;">May 2017</td><td><div class="data-tags"><span class="data-tag">Email</span><span class="data-tag">Password</span><span class="data-tag">Username</span></div></td></tr>
-                  <tr><td><div class="breach-site">Domino's India</div><div class="breach-size">22.5M records</div></td><td style="color:var(--muted);font-size:11px;white-space:nowrap;">Mar 2021</td><td><div class="data-tags"><span class="data-tag">Email</span><span class="data-tag">Phone</span><span class="data-tag">Address</span><span class="data-tag">Orders</span></div></td></tr>
-                  <tr><td><div class="breach-site">Canva</div><div class="breach-size">137.2M records</div></td><td style="color:var(--muted);font-size:11px;white-space:nowrap;">May 2019</td><td><div class="data-tags"><span class="data-tag">Email</span><span class="data-tag">Location</span><span class="data-tag">Name</span><span class="data-tag">Password</span></div></td></tr>
-                  <tr><td><div class="breach-site">Twitter 200M</div><div class="breach-size">211.5M records</div></td><td style="color:var(--muted);font-size:11px;white-space:nowrap;">Jan 2021</td><td><div class="data-tags"><span class="data-tag">Email</span><span class="data-tag">Name</span><span class="data-tag">Social profile</span></div></td></tr>
-                  <tr><td><div class="breach-site">IndiaMART</div><div class="breach-size">20.1M records</div></td><td style="color:var(--muted);font-size:11px;white-space:nowrap;">May 2021</td><td><div class="data-tags"><span class="data-tag">Email</span><span class="data-tag">Phone</span><span class="data-tag">Address</span></div></td></tr>
-                  <tr><td><div class="breach-site">Stealer Logs Telegram</div><div class="breach-size">26.1M records</div></td><td style="color:var(--muted);font-size:11px;white-space:nowrap;">Jul 2024</td><td><div class="data-tags"><span class="data-tag">Password</span><span class="data-tag">Credentials</span><span class="data-tag">Cookies</span></div></td></tr>
+                  <tr><td><div class="breach-site">Zomato</div><div class="breach-size">1.64 Crore records</div></td><td style="color:var(--muted);font-size:11px;white-space:nowrap;">May 2017</td><td><div class="data-tags"><span class="data-tag">Email</span><span class="data-tag">Password</span><span class="data-tag">Username</span></div></td></tr>
+                  <tr><td><div class="breach-site">Domino's India</div><div class="breach-size">2.25 Crore records</div></td><td style="color:var(--muted);font-size:11px;white-space:nowrap;">Mar 2021</td><td><div class="data-tags"><span class="data-tag">Email</span><span class="data-tag">Phone</span><span class="data-tag">Address</span><span class="data-tag">Orders</span></div></td></tr>
+                  <tr><td><div class="breach-site">Canva</div><div class="breach-size">13.7 Crore records</div></td><td style="color:var(--muted);font-size:11px;white-space:nowrap;">May 2019</td><td><div class="data-tags"><span class="data-tag">Email</span><span class="data-tag">Location</span><span class="data-tag">Name</span><span class="data-tag">Password</span></div></td></tr>
+                  <tr><td><div class="breach-site">Twitter 200M</div><div class="breach-size">21.15 Crore records</div></td><td style="color:var(--muted);font-size:11px;white-space:nowrap;">Jan 2021</td><td><div class="data-tags"><span class="data-tag">Email</span><span class="data-tag">Name</span><span class="data-tag">Social profile</span></div></td></tr>
+                  <tr><td><div class="breach-site">IndiaMART</div><div class="breach-size">2.01 Crore records</div></td><td style="color:var(--muted);font-size:11px;white-space:nowrap;">May 2021</td><td><div class="data-tags"><span class="data-tag">Email</span><span class="data-tag">Phone</span><span class="data-tag">Address</span></div></td></tr>
+                  <tr><td><div class="breach-site">Stealer Logs Telegram</div><div class="breach-size">2.61 Crore records</div></td><td style="color:var(--muted);font-size:11px;white-space:nowrap;">Jul 2024</td><td><div class="data-tags"><span class="data-tag">Password</span><span class="data-tag">Credentials</span><span class="data-tag">Cookies</span></div></td></tr>
                 </tbody>
               </table>
             </div>
@@ -623,7 +694,7 @@ body {
               <div class="place-fields">
                 <div class="field-row"><div class="field-key">City</div><div class="field-val">Bengaluru, KA</div></div>
                 <div class="field-row"><div class="field-key">Country</div><div class="field-val">India</div></div>
-                <div class="field-row"><div class="field-key">GPS Coordinates</div><div class="field-val">13.1986° N, 77.7066° E</div></div>
+                <div class="field-row full"><div class="field-key">GPS Coordinates</div><div class="field-val">13.1986° N, 77.7066° E</div></div>
               </div>
             </div>
             <div class="place-card">
@@ -631,7 +702,7 @@ body {
               <div class="place-fields">
                 <div class="field-row"><div class="field-key">City</div><div class="field-val">Goa</div></div>
                 <div class="field-row"><div class="field-key">Country</div><div class="field-val">India</div></div>
-                <div class="field-row"><div class="field-key">GPS Coordinates</div><div class="field-val">15.3808° N, 73.8314° E</div></div>
+                <div class="field-row full"><div class="field-key">GPS Coordinates</div><div class="field-val">15.3808° N, 73.8314° E</div></div>
               </div>
             </div>
             <div class="place-card">
@@ -639,15 +710,15 @@ body {
               <div class="place-fields">
                 <div class="field-row"><div class="field-key">City</div><div class="field-val">Mumbai, MH</div></div>
                 <div class="field-row"><div class="field-key">Country</div><div class="field-val">India</div></div>
-                <div class="field-row"><div class="field-key">GPS Coordinates</div><div class="field-val">19.0896° N, 72.8656° E</div></div>
+                <div class="field-row full"><div class="field-key">GPS Coordinates</div><div class="field-val">19.0896° N, 72.8656° E</div></div>
               </div>
             </div>
             <div class="place-card">
-              <div class="place-header"><div class="place-type">📍 App Sign-in</div><div class="place-date">Dec 19, 2024</div></div>
+              <div class="place-header"><div class="place-type">📍 App Sign-in</div><div class="place-date">Dec 19, 2011</div></div>
               <div class="place-fields">
                 <div class="field-row"><div class="field-key">City</div><div class="field-val">Pattaya, Thailand</div></div>
                 <div class="field-row"><div class="field-key">Country</div><div class="field-val">Thailand</div></div>
-                <div class="field-row"><div class="field-key">GPS Coordinates</div><div class="field-val">12.6799° N, 101.0048° E</div></div>
+                <div class="field-row full"><div class="field-key">GPS Coordinates</div><div class="field-val">12.6799° N, 101.0048° E</div></div>
               </div>
             </div>
             <div style="text-align:center;padding:9px;font-size:12px;color:var(--muted);background:rgba(255,255,255,0.03);border:1px solid var(--card-border);border-radius:8px;margin-bottom:4px;">
@@ -687,9 +758,9 @@ body {
           <div class="card-body">
             <div class="tier-badge tier-deep">⭐ Deep Dive</div>
             <div class="summary-stats">
-              <div class="stat-box"><div class="num red">3</div><div class="lbl">Matches Found</div></div>
-              <div class="stat-box"><div class="num red">1</div><div class="lbl">Fake Profile</div></div>
-              <div class="stat-box"><div class="num gold">94%</div><div class="lbl">Top Confidence</div></div>
+              <div class="stat-box"><div class="num red">6</div><div class="lbl">Matches Found</div></div>
+              <div class="stat-box"><div class="num red">2</div><div class="lbl">Fake Profiles</div></div>
+              <div class="stat-box"><div class="num gold">94%</div><div class="lbl">Top Match</div></div>
             </div>
             <div class="section-title">Photo Matches</div>
             <div class="photo-match-card alarming">
@@ -702,22 +773,50 @@ body {
                 <div class="field-row" style="grid-column:1/-1"><div class="field-key">Direct URL</div><div class="field-val" style="font-size:11px;word-break:break-all;">https://fakeprofiles.net/profile/tushar-sharma-9821</div></div>
               </div>
             </div>
-            <div class="photo-match-card">
-              <div class="match-header"><div class="match-platform">Dating Platform</div><div class="confidence-badge">81% match</div></div>
+            <div class="photo-match-card alarming">
+              <div class="match-header"><div class="match-platform">⚠ Dating Platform</div><div class="confidence-badge">88% match</div></div>
+              <div class="fake-badge">⛔ Fake Profile Detected</div>
               <div class="photo-thumb-placeholder">[ Profile Photo ]</div>
-              <div class="field-grid">
+              <div class="field-grid" style="margin-bottom:8px;">
                 <div class="field-row"><div class="field-key">Platform</div><div class="field-val">shaadi-alt.com</div></div>
                 <div class="field-row"><div class="field-key">Profile Name</div><div class="field-val">Tushar_M</div></div>
                 <div class="field-row" style="grid-column:1/-1"><div class="field-key">Direct URL</div><div class="field-val" style="font-size:11px;word-break:break-all;">https://shaadi-alt.com/users/tushar_m_8821</div></div>
               </div>
             </div>
             <div class="photo-match-card">
+              <div class="match-header"><div class="match-platform">Social Media</div><div class="confidence-badge">81% match</div></div>
+              <div class="photo-thumb-placeholder">[ Profile Photo ]</div>
+              <div class="field-grid" style="margin-bottom:8px;">
+                <div class="field-row"><div class="field-key">Platform</div><div class="field-val">localconnect.in</div></div>
+                <div class="field-row"><div class="field-key">Profile Name</div><div class="field-val">Tushar M.</div></div>
+                <div class="field-row" style="grid-column:1/-1"><div class="field-key">Direct URL</div><div class="field-val" style="font-size:11px;word-break:break-all;">https://localconnect.in/profile/tushar-m-2291</div></div>
+              </div>
+            </div>
+            <div class="photo-match-card">
               <div class="match-header"><div class="match-platform">News Article</div><div class="confidence-badge">76% match</div></div>
               <div class="photo-thumb-placeholder">[ Photo in Article ]</div>
-              <div class="field-grid">
+              <div class="field-grid" style="margin-bottom:8px;">
                 <div class="field-row"><div class="field-key">Publication</div><div class="field-val">localpress.in</div></div>
                 <div class="field-row"><div class="field-key">Context</div><div class="field-val">Event photo</div></div>
                 <div class="field-row" style="grid-column:1/-1"><div class="field-key">Direct URL</div><div class="field-val" style="font-size:11px;word-break:break-all;">https://localpress.in/events/2023/tech-summit-photos</div></div>
+              </div>
+            </div>
+            <div class="photo-match-card">
+              <div class="match-header"><div class="match-platform">Forum / Community</div><div class="confidence-badge">71% match</div></div>
+              <div class="photo-thumb-placeholder">[ Profile Photo ]</div>
+              <div class="field-grid" style="margin-bottom:8px;">
+                <div class="field-row"><div class="field-key">Platform</div><div class="field-val">indiaforums.org</div></div>
+                <div class="field-row"><div class="field-key">Profile Name</div><div class="field-val">Tushar92</div></div>
+                <div class="field-row" style="grid-column:1/-1"><div class="field-key">Direct URL</div><div class="field-val" style="font-size:11px;word-break:break-all;">https://indiaforums.org/members/tushar92</div></div>
+              </div>
+            </div>
+            <div class="photo-match-card">
+              <div class="match-header"><div class="match-platform">Professional Network</div><div class="confidence-badge">65% match</div></div>
+              <div class="photo-thumb-placeholder">[ Profile Photo ]</div>
+              <div class="field-grid" style="margin-bottom:8px;">
+                <div class="field-row"><div class="field-key">Platform</div><div class="field-val">naukri.com</div></div>
+                <div class="field-row"><div class="field-key">Profile Name</div><div class="field-val">Tushar Mehta</div></div>
+                <div class="field-row" style="grid-column:1/-1"><div class="field-key">Direct URL</div><div class="field-val" style="font-size:11px;word-break:break-all;">https://naukri.com/profile/tushar-mehta-bengaluru</div></div>
               </div>
             </div>
           </div>
@@ -730,9 +829,7 @@ body {
       </div>
 
     </div><!-- /sub-deep -->
-
   </div><!-- /panel-hits -->
-
 </div><!-- /tab-wrap -->
 
 <script>
