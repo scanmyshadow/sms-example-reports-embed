@@ -16,7 +16,7 @@
   --green: #3ecf8e;
   --card-bg: rgba(255,255,255,0.04);
   --card-border: rgba(255,255,255,0.08);
-  --muted: rgba(255,255,255,0.45);
+  --muted: rgba(255,255,255,0.65);
   --text: #fff;
   --radius: 12px;
 }
@@ -73,7 +73,7 @@ body {
 }
 .hero-sub {
   position: relative; z-index: 1;
-  font-size: 14px; color: rgba(255,255,255,0.38);
+  font-size: 14px; color: rgba(255,255,255,0.58);
   font-style: italic; max-width: 380px; margin: 0 auto; line-height: 1.6;
 }
 .tab-wrap { max-width: 560px; margin: 0 auto; padding: 0 16px; }
@@ -196,15 +196,15 @@ body {
 .photo-thumb-placeholder { width: 100%; height: 130px; background: rgba(255,255,255,0.05); border: 1px solid var(--card-border); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; color: var(--muted); filter: blur(6px); user-select: none; margin-bottom: 8px; }
 .photo-summary-box { background: rgba(212,175,55,0.05); border: 1px solid rgba(212,175,55,0.18); border-radius: 8px; padding: 16px; margin: 12px 0 4px; }
 .photo-summary-box .psb-title { font-size: 12px; font-weight: 700; color: var(--gold); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.08em; }
-.photo-summary-box p { font-size: 12.5px; color: rgba(255,255,255,0.65); line-height: 1.6; }
-.calm-note { background: rgba(62,207,142,0.07); border: 1px solid rgba(62,207,142,0.2); border-radius: 8px; padding: 11px 13px; margin: 12px 0 4px; font-size: 12px; color: rgba(255,255,255,0.65); line-height: 1.55; }
-.concierge-note { display: flex; align-items: flex-start; gap: 10px; background: rgba(212,175,55,0.05); border: 1px solid rgba(212,175,55,0.18); border-radius: 8px; padding: 11px 13px; margin: 8px 0 4px; font-size: 12px; color: rgba(255,255,255,0.65); line-height: 1.55; }
+.photo-summary-box p { font-size: 12.5px; color: rgba(255,255,255,0.85); line-height: 1.6; }
+.calm-note { background: rgba(62,207,142,0.07); border: 1px solid rgba(62,207,142,0.2); border-radius: 8px; padding: 11px 13px; margin: 12px 0 4px; font-size: 12px; color: rgba(255,255,255,0.85); line-height: 1.55; }
+.concierge-note { display: flex; align-items: flex-start; gap: 10px; background: rgba(212,175,55,0.05); border: 1px solid rgba(212,175,55,0.18); border-radius: 8px; padding: 11px 13px; margin: 8px 0 4px; font-size: 12px; color: rgba(255,255,255,0.85); line-height: 1.55; }
 .concierge-note .lock-icon { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
 .cta-wrap { text-align: center; padding: 20px 16px 16px; position: relative; z-index: 1; }
 .cta-btn { display: inline-block; background: var(--gold); color: #191919; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700; padding: 13px 28px; border-radius: 999px; text-decoration: none; border: none; cursor: pointer; transition: opacity 0.2s, transform 0.15s; }
 .cta-btn:hover { opacity: 0.9; transform: translateY(-1px); }
 .cta-sub { font-size: 12.5px; color: var(--muted); margin-top: 8px; }
-.cta-nudge { font-size: 12.5px; color: rgba(255,255,255,0.3); margin-top: 10px; font-style: italic; }
+.cta-nudge { font-size: 12.5px; color: rgba(255,255,255,0.5); margin-top: 10px; font-style: italic; }
 .panel-note { font-size: 14px; color: var(--muted); text-align: center; margin-bottom: 14px; padding: 0 4px; line-height: 1.5; }
 .panel-note span { color: var(--gold); font-weight: 600; }
 </style>
@@ -280,8 +280,8 @@ body {
   <!-- IF LEAKS FOUND -->
   <div id="panel-hits" class="panel">
     <div class="l2-wrap">
-      <button class="l2-btn active" onclick="switchL2(this,'sub-basic')">Privacy Scan</button>
-      <button class="l2-btn" onclick="switchL2(this,'sub-deep')">Deep Dive</button>
+      <button class="l2-btn active" onclick="switchL2(this,'sub-basic')">Privacy Scan · ₹298</button>
+      <button class="l2-btn" onclick="switchL2(this,'sub-deep')">Deep Dive · ₹998</button>
     </div>
 
     <!-- PRIVACY SCAN -->
@@ -415,36 +415,32 @@ body {
               <div class="site-pill more">+14 more</div>
             </div>
             <div class="section-title" style="margin-top:18px;">Your Data Was Leaked In</div>
-            <div style="filter:blur(4px);user-select:none;pointer-events:none;">
             <div class="breach-table-wrap">
               <table class="breach-table">
                 <thead><tr><th>Source</th><th>Date</th><th>Data Leaked</th></tr></thead>
                 <tbody>
-                  <tr><td><div class="breach-site">Zomato</div><div class="breach-size">1.64 Crore records</div></td><td style="color:var(--muted);font-size:11px;white-space:nowrap;">May 2017</td><td><div class="data-tags"><span class="data-tag">Email</span><span class="data-tag">Password</span><span class="data-tag">Username</span></div></td></tr>
-                  <tr><td><div class="breach-site">Domino's India</div><div class="breach-size">2.25 Crore records</div></td><td style="color:var(--muted);font-size:11px;white-space:nowrap;">Mar 2021</td><td><div class="data-tags"><span class="data-tag">Email</span><span class="data-tag">Phone</span><span class="data-tag">Address</span></div></td></tr>
-                  <tr><td><div class="breach-site">Canva</div><div class="breach-size">13.7 Crore records</div></td><td style="color:var(--muted);font-size:11px;white-space:nowrap;">May 2019</td><td><div class="data-tags"><span class="data-tag">Email</span><span class="data-tag">Name</span><span class="data-tag">Password</span></div></td></tr>
-                  <tr><td><div class="breach-site">BigBasket</div><div class="breach-size">2 Crore records</div></td><td style="color:var(--muted);font-size:11px;white-space:nowrap;">Oct 2020</td><td><div class="data-tags"><span class="data-tag">Email</span><span class="data-tag">Phone</span><span class="data-tag">Address</span><span class="data-tag">Password</span></div></td></tr>
-                  <tr><td><div class="breach-site">MobiKwik</div><div class="breach-size">10 Crore records</div></td><td style="color:var(--muted);font-size:11px;white-space:nowrap;">Mar 2021</td><td><div class="data-tags"><span class="data-tag">Email</span><span class="data-tag">Phone</span><span class="data-tag">KYC Data</span></div></td></tr>
-                  <tr><td><div class="breach-site">Air India</div><div class="breach-size">45 Lakh records</div></td><td style="color:var(--muted);font-size:11px;white-space:nowrap;">May 2021</td><td><div class="data-tags"><span class="data-tag">Name</span><span class="data-tag">DOB</span><span class="data-tag">Passport</span><span class="data-tag">Email</span></div></td></tr>
+                  <tr><td><div class="breach-site">Zomato</div><div class="breach-size">1.64 Crore records</div></td><td style="color:var(--muted);font-size:11px;white-space:nowrap;">May 2017</td><td style="filter:blur(4px);user-select:none;"><div class="data-tags"><span class="data-tag">Email</span><span class="data-tag">Password</span><span class="data-tag">Username</span></div></td></tr>
+                  <tr><td><div class="breach-site">Domino's India</div><div class="breach-size">2.25 Crore records</div></td><td style="color:var(--muted);font-size:11px;white-space:nowrap;">Mar 2021</td><td style="filter:blur(4px);user-select:none;"><div class="data-tags"><span class="data-tag">Email</span><span class="data-tag">Phone</span><span class="data-tag">Address</span></div></td></tr>
+                  <tr><td><div class="breach-site">Canva</div><div class="breach-size">13.7 Crore records</div></td><td style="color:var(--muted);font-size:11px;white-space:nowrap;">May 2019</td><td style="filter:blur(4px);user-select:none;"><div class="data-tags"><span class="data-tag">Email</span><span class="data-tag">Name</span><span class="data-tag">Password</span></div></td></tr>
+                  <tr><td><div class="breach-site">BigBasket</div><div class="breach-size">2 Crore records</div></td><td style="color:var(--muted);font-size:11px;white-space:nowrap;">Oct 2020</td><td style="filter:blur(4px);user-select:none;"><div class="data-tags"><span class="data-tag">Email</span><span class="data-tag">Phone</span><span class="data-tag">Address</span><span class="data-tag">Password</span></div></td></tr>
+                  <tr><td><div class="breach-site">MobiKwik</div><div class="breach-size">10 Crore records</div></td><td style="color:var(--muted);font-size:11px;white-space:nowrap;">Mar 2021</td><td style="filter:blur(4px);user-select:none;"><div class="data-tags"><span class="data-tag">Email</span><span class="data-tag">Phone</span><span class="data-tag">KYC Data</span></div></td></tr>
+                  <tr><td><div class="breach-site">Air India</div><div class="breach-size">45 Lakh records</div></td><td style="color:var(--muted);font-size:11px;white-space:nowrap;">May 2021</td><td style="filter:blur(4px);user-select:none;"><div class="data-tags"><span class="data-tag">Name</span><span class="data-tag">DOB</span><span class="data-tag">Passport</span><span class="data-tag">Email</span></div></td></tr>
                 </tbody>
               </table>
             </div>
-            </div>
             <div class="section-title" style="margin-top:16px;">Activity History</div>
-            <div style="filter:blur(4px);user-select:none;pointer-events:none;">
             <div class="table-wrap">
               <table class="activity-table">
                 <thead><tr><th>Date</th><th>Platform</th><th>Event</th></tr></thead>
                 <tbody>
-                  <tr><td>Apr 8, 2026</td><td class="activity-platform">Google</td><td>Last seen online</td></tr>
-                  <tr><td>Oct 25, 2025</td><td class="activity-platform">Google Maps</td><td>Left a review at a location</td></tr>
-                  <tr><td>Feb 14, 2024</td><td class="activity-platform">Naukri</td><td>Resume updated</td></tr>
-                  <tr><td>Nov 7, 2014</td><td class="activity-platform">Quora</td><td>Account created</td></tr>
-                  <tr><td>Aug 3, 2013</td><td class="activity-platform">Zomato</td><td>Account created</td></tr>
-                  <tr><td>Sep 9, 2012</td><td class="activity-platform">Microsoft</td><td>Account created</td></tr>
+                  <tr><td>Apr 8, 2026</td><td class="activity-platform">Google</td><td style="filter:blur(4px);user-select:none;">Last seen online</td></tr>
+                  <tr><td>Oct 25, 2025</td><td class="activity-platform">Google Maps</td><td style="filter:blur(4px);user-select:none;">Left a review at a location</td></tr>
+                  <tr><td>Feb 14, 2024</td><td class="activity-platform">Naukri</td><td style="filter:blur(4px);user-select:none;">Resume updated</td></tr>
+                  <tr><td>Nov 7, 2014</td><td class="activity-platform">Quora</td><td style="filter:blur(4px);user-select:none;">Account created</td></tr>
+                  <tr><td>Aug 3, 2013</td><td class="activity-platform">Zomato</td><td style="filter:blur(4px);user-select:none;">Account created</td></tr>
+                  <tr><td>Sep 9, 2012</td><td class="activity-platform">Microsoft</td><td style="filter:blur(4px);user-select:none;">Account created</td></tr>
                 </tbody>
               </table>
-            </div>
             </div>
             <div class="calm-note">Not every result is a red flag. Apps you use daily — WhatsApp, Google, Instagram — will always appear. Pay attention to names you don't recognise. Those are the ones that matter.</div>
             <div class="concierge-note">
@@ -539,7 +535,7 @@ body {
 
     <!-- DEEP DIVE -->
     <div id="sub-deep" class="sub-panel">
-      <p class="panel-note">Everything in your Privacy Scan — plus full breach details, all locations, complete activity history, and photo matches. <span>Only offered when leaks are found in your Privacy Scan report.</span></p>
+      <p class="panel-note">Everything in your Privacy Scan — plus where your data appears, how it may be used, and what to do next. Includes up to 10 direct source links. <span>Only offered when leaks are found.</span></p>
       <div class="l3-wrap">
         <button class="l3-btn active" onclick="switchL3(this,'d-phone')">📱 Phone</button>
         <button class="l3-btn" onclick="switchL3(this,'d-email')">✉ Email</button>
@@ -571,7 +567,7 @@ body {
               <div class="field-grid">
                 <div class="field-row"><div class="field-key">Account Exists</div><div class="field-val">Yes</div></div>
                 <div class="field-row"><div class="field-key">Profile Photo</div><div class="field-val">Retrieved</div></div>
-                <div class="field-row" style="grid-column:1/-1"><div class="field-key">Linked Email</div><div class="field-val"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="562223253e3724783b636e6f2e242616313b373f3a7835393b">[email&#160;protected]</a></div></div>
+                <div class="field-row" style="grid-column:1/-1"><div class="field-key">Linked Email</div><div class="field-val">tushar.m589xrp@gmail.com</div></div>
               </div>
             </div>
             <div class="platform-card">
