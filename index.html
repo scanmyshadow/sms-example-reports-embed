@@ -812,19 +812,35 @@ body {
   </div><!-- /panel-hits -->
 </div><!-- /tab-wrap -->
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 function switchL1(btn, id) {
   document.querySelectorAll('.l1-tabs .tab-btn').forEach(function(b){ b.classList.remove('active'); });
   document.querySelectorAll('#panel-clean, #panel-hits').forEach(function(p){ p.classList.remove('active'); });
   btn.classList.add('active');
   document.getElementById(id).classList.add('active');
+  sendHeight();
 }
 function switchL2(btn, id) {
   document.querySelectorAll('.l2-wrap .l2-btn').forEach(function(b){ b.classList.remove('active'); });
   document.querySelectorAll('#sub-basic, #sub-deep').forEach(function(p){ p.classList.remove('active'); });
   btn.classList.add('active');
   document.getElementById(id).classList.add('active');
+  sendHeight();
 }
 function switchL3(btn, id) {
   var parent = btn.closest('.sub-panel');
-  parent.querySelectorAll('.l3-btn').forEach(function(b){ b.clas
+  parent.querySelectorAll('.l3-btn').forEach(function(b){ b.classList.remove('active'); });
+  parent.querySelectorAll('.l3-panel').forEach(function(p){ p.classList.remove('active'); });
+  btn.classList.add('active');
+  document.getElementById(id).classList.add('active');
+  sendHeight();
+}
+function sendHeight() {
+  var h = document.body.scrollHeight;
+  window.parent.postMessage({ frameHeight: h }, '*');
+}
+window.addEventListener('load', sendHeight);
+window.addEventListener('resize', sendHeight);
+</script>
+</body>
+</html>
