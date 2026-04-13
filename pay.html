@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const tier = params.get('tier') || '298';
+  const scanId = 'SMS-' + Date.now();
+  const url = `https://secure.ccavenue.com/transaction/transaction.do?command=initiateTransaction&merchant_id=4438500&access_code=AVHV90ND94BA02VHAB&amount=${tier}&currency=INR&order_id=${scanId}&redirect_url=https://scanmyshadow.com&cancel_url=https://scanmyshadow.com`;
+  window.location.href = url;
+</script>
+</head>
+<body></body>
+</html>
